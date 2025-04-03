@@ -1,0 +1,18 @@
+require('dotenv').config();
+const connectToDB = require('./db/db');
+
+
+connectToDB()
+.then(()=>{
+    app.on("error", (error)=> {
+        console.log("Error!",error);
+        throw error
+    })
+    app.listen(process.env.PORT, ()=>{
+        console.log(`Server is running at ${process.env.PORT}`);
+        
+    })
+})
+.catch((error)=>{
+    console.log("MongoDB Connection Failed!", error);
+})
