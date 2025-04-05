@@ -1,7 +1,6 @@
 require('dotenv').config();
 const connectToDB = require('./db/db');
-
-
+const app = require('./app.js');
 connectToDB()
 .then(()=>{
     app.on("error", (error)=> {
